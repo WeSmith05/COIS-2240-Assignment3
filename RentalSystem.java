@@ -37,24 +37,18 @@ public class RentalSystem {
         }
     }    
 
-    public void displayAvailableVehicles() {
+    public void displayVehicles(boolean onlyAvailable) {
     	System.out.println("|     Type         |\tPlate\t|\tMake\t|\tModel\t|\tYear\t|");
     	System.out.println("---------------------------------------------------------------------------------");
     	 
         for (Vehicle v : vehicles) {
-            if (v.getStatus() == Vehicle.VehicleStatus.AVAILABLE) {
+            if (!onlyAvailable || v.getStatus() == Vehicle.VehicleStatus.AVAILABLE) {
                 System.out.println("|     " + (v instanceof Car ? "Car          " : "Motorcycle   ") + "|\t" + v.getLicensePlate() + "\t|\t" + v.getMake() + "\t|\t" + v.getModel() + "\t|\t" + v.getYear() + "\t|\t");
             }
         }
         System.out.println();
     }
     
-    public void displayAllVehicles() {
-        for (Vehicle v : vehicles) {
-            System.out.println("  " + v.getInfo());
-        }
-    }
-
     public void displayAllCustomers() {
         for (Customer c : customers) {
             System.out.println("  " + c.toString());
@@ -76,16 +70,9 @@ public class RentalSystem {
         return null;
     }
     
-    public Customer findCustomerById(int id) {
+    public Customer findCustomerById(String id) {
         for (Customer c : customers)
-            if (c.getCustomerId() == id)
-                return c;
-        return null;
-    }
-
-    public Customer findCustomerByName(String name) {
-        for (Customer c : customers)
-            if (c.getCustomerName().equalsIgnoreCase(name))
+            if (c.getCustomerId() == Integer.parseInt(id))
                 return c;
         return null;
     }
