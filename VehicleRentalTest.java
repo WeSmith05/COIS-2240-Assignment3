@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 
 class VehicleRentalTest {
 	@Test
@@ -52,7 +54,20 @@ class VehicleRentalTest {
 		// Return the same vehicle again and test if it fails
 		boolean returnAgain = system.returnVehicle(car, customer, LocalDate.now(), 500.0);
 		assertFalse(returnAgain);
+	}
+	
+	@Test
+	public void testSingletonRentalSystem() throws Exception {
+		// Return constructor of the RentalSystem class
+		Constructor<RentalSystem> constructor = RentalSystem.class.getDeclaredConstructor();
 		
+		// Get constructors modifiers and validate modifier is private
+		int modifiers = constructor.getModifiers();
+		assertTrue(Modifier.isPrivate(modifiers));
+		
+		// Obtain instance of RentalSYstem and assert its not null
+		RentalSystem instance = RentalSystem.getInstance();
+        assertNotNull(instance);
 	}
 	
 	

@@ -1,2 +1,4 @@
 RENT | Plate: AAA111 | Customer: George | Date: 2025-04-04 | Amount: $500.0|1
 RETURN | Plate: AAA111 | Customer: George | Date: 2025-04-04 | Amount: $500.0|1
+RENT | Plate: AAA111 | Customer: George | Date: 2025-04-05 | Amount: $500.0|1
+RETURN | Plate: AAA111 | Customer: George | Date: 2025-04-05 | Amount: $500.0|1
