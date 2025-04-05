@@ -136,21 +136,21 @@ public class RentalSystem {
                 Vehicle vehicle = null;
                 switch (type) {
 	                case "Car":
-	                	int numSeats = Integer.parseInt(parts[6].split(":")[1].trim());
+	                	int numSeats = Integer.parseInt(parts[7].split(":")[1].trim());
 	                    vehicle = new Car(make, model, year, numSeats);
 	                    break;
 	                case "Motorcycle":
-                    	boolean hasSidecar = parts[6].split(":")[1].trim().equalsIgnoreCase("Yes");
+                    	boolean hasSidecar = parts[7].split(":")[1].trim().equalsIgnoreCase("Yes");
                         vehicle = new Motorcycle(make, model, year, hasSidecar);
                         break;
                     case "SportCar":
-                    	int numSeatsSport = Integer.parseInt(parts[6].split(":")[1].trim());
-                    	int horsepower = Integer.parseInt(parts[7].split(":")[1].trim());
-                    	boolean hasTurbo = parts[8].split(":")[1].trim().equalsIgnoreCase("Yes");
+                    	int numSeatsSport = Integer.parseInt(parts[7].split(":")[1].trim());
+                    	int horsepower = Integer.parseInt(parts[8].split(":")[1].trim());
+                    	boolean hasTurbo = parts[9].split(":")[1].trim().equalsIgnoreCase("Yes");
                         vehicle = new SportCar(make, model, year, numSeatsSport, horsepower, hasTurbo);
                         break;
                     case "Truck":
-                        double cargoCapacity = Double.parseDouble(parts[6].split(":")[1].trim());
+                        double cargoCapacity = Double.parseDouble(parts[7].split(":")[1].trim());
                         vehicle = new Truck(make, model, year, cargoCapacity);
                         break;
                 }
